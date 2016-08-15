@@ -138,7 +138,7 @@ var myLazyLoad = new LazyLoad({
     data_src: "src",
     data_srcset: "srcset",
     show_while_loading: true,
-    callback_set: function() { /* ... */ }
+    callback_set: function(element) { /* ... */ }
 });
 ```
 
@@ -201,9 +201,9 @@ Here's the list of the options.
 | `class_loaded` | The class applied to the elements when the loading is complete | `"loaded"` |
 | `skip_invisible` | Specifies whether the script has to consider invisible images or not | `true` |
 | `show_while_loading` | Specifies whether the script must show the images while they are loading. Set it to true when you use progressive JPEG format for your images. **Note**: to make the image visible while loading, you will have to avoid using the `src` attribute in the `img` tag | `false` |
-| `callback_load` | A function to be called when an image was loaded. | `null` |
-| `callback_set` | A function to be called when the src of an image is set in the DOM. | `null` |
-| `callback_processed` | A function to be called when an image was processed. | `null` |
+| `callback_load` | A function to be called when an image is loaded. It will be called with a single argument, the html `element` of the image. | `null` |
+| `callback_set` | A function to be called when the src of an image is set in the DOM. It will be called with a single argument, the html `element` of the image. | `null` |
+| `callback_processed` | A function to be called after all lazy-loaded images for the current view area were processed. It will be called with a single argument: the number of remaining images to be lazy-loaded on the page. | `null` |
 | `placeholder` | The URL of a placeholder image to be shown while the original image is loading. This option is ignored when the option `show_while_loading` is set to `true` | (A base64 encoded 1x1 transp. gif) |
 
 ## Public methods
